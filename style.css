@@ -43,7 +43,7 @@ body::before {
   align-items: center;
   background: rgba(11, 18, 32, 0.88);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   z-index: 1000;
 }
 
@@ -141,8 +141,8 @@ body::before {
   border-radius: 50%;
   background: radial-gradient(
     ellipse,
-    rgba(59,130,246,0.16) 0%,
-    rgba(59,130,246,0.08) 40%,
+    rgba(59, 130, 246, 0.16) 0%,
+    rgba(59, 130, 246, 0.08) 40%,
     transparent 70%
   );
   z-index: 0;
@@ -202,7 +202,7 @@ body::before {
 
 .btn-primary:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(59,130,246,0.4);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
 }
 
 .btn-secondary {
@@ -212,7 +212,7 @@ body::before {
 
 .btn-secondary:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(245,166,35,0.4);
+  box-shadow: 0 10px 25px rgba(245, 166, 35, 0.4);
 }
 
 /* ========================= HERO RIGHT ========================= */
@@ -237,8 +237,8 @@ body::before {
   justify-content: center;
   align-items: center;
   box-shadow:
-    0 0 60px rgba(59,130,246,0.25),
-    0 0 120px rgba(59,130,246,0.15);
+    0 0 60px rgba(59, 130, 246, 0.25),
+    0 0 120px rgba(59, 130, 246, 0.15);
 }
 
 .hero-img-circle img {
@@ -312,7 +312,7 @@ body::before {
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  box-shadow: 0 0 25px rgba(37,211,102,0.5);
+  box-shadow: 0 0 25px rgba(37, 211, 102, 0.5);
   transition: 0.3s;
 }
 
@@ -362,7 +362,6 @@ body::before {
 
 /* ========================= RESPONSIVE ========================= */
 @media (max-width: 768px) {
-
   .header {
     padding: 15px 20px;
   }
@@ -448,4 +447,3 @@ body::before {
     color: #ffffff;
   }
 }
-
