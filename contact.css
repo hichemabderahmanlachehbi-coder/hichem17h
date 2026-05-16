@@ -127,7 +127,7 @@ body::before {
 }
 
 .navbar a.active {
-  color: #ffffff;
+  color: #fdf9f9;
 }
 
 .navbar a.active::after {
@@ -471,10 +471,10 @@ main {
 
   .navbar.open a {
     font-size: 1.3rem;
-    color: #0c0c0c; /* ✅ روابط بلون أصفر */
+    color: #ffffff; /* ✅ روابط بلون أصفر */
   }
 
   .navbar.open a:hover {
-    color: #ffffff;
+    color: #38bdf8;
   }
 }

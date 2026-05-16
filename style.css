@@ -491,10 +491,10 @@ body::before {
 
   .navbar.open a {
     font-size: 1.3rem;
-    color: #0c0c0c; /* ✅ روابط بلون أصفر */
+    color: #ffffff; /* ✅ روابط بلون أصفر */
   }
 
   .navbar.open a:hover {
-    color: #ffffff;
+    color: #38bdf8;
   }
 }
