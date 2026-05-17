@@ -16,34 +16,60 @@ body {
   overflow-x: hidden;
   color: #ffffff;
   position: relative;
+  min-height: 100vh;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px
+  );
+
+  background-size: 40px 40px;
+
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* ========================= BACKGROUND ========================= */
 body::before {
   content: "";
   position: fixed;
-  top: -200px;
-  left: -200px;
-  width: 700px;
-  height: 700px;
-  background: rgba(59, 130, 246, 0.08);
-  filter: blur(150px);
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(15, 23, 42, 0.45),
+      rgba(2, 6, 23, 0.82)
+    ),
+    url("./assets/bg-tech.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
   z-index: -1;
 }
 
 /* ========================= HEADER ========================= */
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   padding: 16px 70px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(11, 18, 32, 0.88);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  background: transparent;
   z-index: 1000;
 }
 
@@ -63,11 +89,57 @@ body::before {
 }
 
 .logo-img {
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 15px #00d4ff;
+
+  position: relative;
+
+  border: 2px solid rgba(56, 189, 248, 0.7);
+
+  box-shadow:
+    0 0 12px rgba(56, 189, 248, 0.6),
+    0 0 30px rgba(56, 189, 248, 0.4),
+    0 0 60px rgba(56, 189, 248, 0.2);
+
+  transition: all 0.45s ease;
+
+  animation:
+    logoFloat 4s ease-in-out infinite,
+    logoGlow 2.5s ease-in-out infinite;
+}
+
+/* Hover */
+.logo-img:hover {
+  transform: scale(1.15) rotate(8deg);
+
+  box-shadow:
+    0 0 18px rgba(56, 189, 248, 1),
+    0 0 40px rgba(56, 189, 248, 0.7),
+    0 0 80px rgba(56, 189, 248, 0.35);
+}
+
+/* نبض الإضاءة */
+@keyframes logoGlow {
+  0% {
+    box-shadow:
+      0 0 10px rgba(56, 189, 248, 0.4),
+      0 0 25px rgba(56, 189, 248, 0.2);
+  }
+
+  50% {
+    box-shadow:
+      0 0 20px rgba(56, 189, 248, 0.9),
+      0 0 45px rgba(56, 189, 248, 0.5),
+      0 0 70px rgba(56, 189, 248, 0.25);
+  }
+
+  100% {
+    box-shadow:
+      0 0 10px rgba(56, 189, 248, 0.4),
+      0 0 25px rgba(56, 189, 248, 0.2);
+  }
 }
 
 .logo-text {
@@ -120,7 +192,7 @@ body::before {
 
 /* ========================= HERO ========================= */
 .hero {
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -129,7 +201,7 @@ body::before {
   overflow: hidden;
 }
 
-/* الخلفية خلف الصورة */
+/* خلفية دائرية */
 .hero::before {
   content: "";
   position: absolute;
@@ -139,12 +211,14 @@ body::before {
   width: 700px;
   height: 700px;
   border-radius: 50%;
+
   background: radial-gradient(
     ellipse,
-    rgba(59, 130, 246, 0.16) 0%,
+    rgba(59, 130, 246, 0.18) 0%,
     rgba(59, 130, 246, 0.08) 40%,
     transparent 70%
   );
+
   z-index: 0;
 }
 
@@ -173,48 +247,119 @@ body::before {
 .hero-left p {
   font-size: 18px;
   line-height: 1.9;
-  color: #7f8aad;
+  color: #b7c0d8;
   max-width: 700px;
   margin-bottom: 38px;
 }
 
 /* ========================= BUTTONS ========================= */
+
 .hero-btns {
   display: flex;
   gap: 18px;
+  margin-top: 30px;
 }
 
 .btn-primary,
 .btn-secondary {
-  padding: 16px 38px;
-  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+
+  padding: 15px 34px;
+
   border: none;
+  border-radius: 16px;
+
   font-size: 15px;
   font-weight: 600;
+
   cursor: pointer;
-  transition: 0.3s;
+  text-decoration: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.35s ease;
+
+  backdrop-filter: blur(10px);
 }
 
+/* ================= PRIMARY ================= */
+
 .btn-primary {
-  background: #3b82f6;
   color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.95),
+    rgba(56, 189, 248, 0.9)
+  );
+
+  box-shadow:
+    0 0 15px rgba(56, 189, 248, 0.35),
+    0 0 35px rgba(37, 99, 235, 0.25);
 }
 
 .btn-primary:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+  transform: translateY(-6px) scale(1.03);
+
+  box-shadow:
+    0 0 25px rgba(56, 189, 248, 0.55),
+    0 0 50px rgba(37, 99, 235, 0.4);
 }
 
+/* ================= SECONDARY ================= */
+
 .btn-secondary {
-  background: #f5a623;
   color: #0b1220;
+
+  background: linear-gradient(
+    135deg,
+    rgba(245, 158, 11, 0.95),
+    rgba(251, 191, 36, 0.9)
+  );
+
+  box-shadow:
+    0 0 15px rgba(245, 158, 11, 0.35),
+    0 0 35px rgba(251, 191, 36, 0.25);
 }
 
 .btn-secondary:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(245, 166, 35, 0.4);
+  transform: translateY(-6px) scale(1.03);
+
+  box-shadow:
+    0 0 25px rgba(245, 158, 11, 0.55),
+    0 0 50px rgba(251, 191, 36, 0.35);
 }
 
+/* ================= LIGHT EFFECT ================= */
+
+.btn-primary::before,
+.btn-secondary::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: -120%;
+
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+
+  transition: 0.7s;
+}
+
+.btn-primary:hover::before,
+.btn-secondary:hover::before {
+  left: 120%;
+}
 /* ========================= HERO RIGHT ========================= */
 .hero-right {
   width: 48%;
@@ -232,26 +377,65 @@ body::before {
   height: 470px;
   border-radius: 50%;
   overflow: hidden;
-  background: linear-gradient(160deg, #1a237e, #3949ab);
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 4px solid #3b82f6;
+
   box-shadow:
-    0 0 60px rgba(59, 130, 246, 0.25),
-    0 0 120px rgba(59, 130, 246, 0.15);
+    0 0 60px rgba(59, 130, 246, 0.5),
+    0 0 120px rgba(59, 130, 246, 0.25);
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+
+  position: relative;
 }
 
+/* تأثير الإضاءة */
+.hero-img-circle::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.25),
+    transparent 70%
+  );
+
+  z-index: -1;
+}
+
+/* Hover */
+.hero-img-circle:hover {
+  transform: scale(1.08);
+
+  box-shadow:
+    0 0 80px rgba(59, 130, 246, 0.8),
+    0 0 160px rgba(59, 130, 246, 0.4);
+}
+
+/* الصورة */
 .hero-img-circle img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: transparent;
+  filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.45));
+  transition: transform 0.4s ease;
+}
+
+.hero-img-circle:hover img {
+  transform: scale(1.05);
 }
 
 /* ========================= BADGES ========================= */
 .badge {
   position: absolute;
-  background: #f5a623;
-  color: #0b1220;
   padding: 10px 20px;
   border-radius: 30px;
   font-size: 11px;
@@ -260,16 +444,26 @@ body::before {
   z-index: 5;
 }
 
-/* العلوي */
+/* FULL STACK */
 .badge-1 {
   top: 110px;
   right: 140px;
+
+  background: #2563eb;
+  color: #ffffff;
+
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.6);
 }
 
-/* السفلي */
+/* SOFTWARE ENGINEER */
 .badge-2 {
   bottom: 110px;
   left: 140px;
+
+  background: #f5a623;
+  color: #0b1220;
+
+  box-shadow: 0 0 25px rgba(245, 166, 35, 0.6);
 }
 
 /* ========================= FLOAT ========================= */
@@ -286,14 +480,27 @@ body::before {
     transform: translateY(0px);
   }
 }
+@keyframes logoFloat {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
 
 /* ========================= FOOTER ========================= */
 .footer {
   text-align: center;
   padding: 20px;
-  color: #3a4266;
+  color: #6b7280;
   font-size: 12px;
-  border-top: 1px solid #131829;
+  border-top: none;
 }
 
 .footer span {
@@ -301,23 +508,106 @@ body::before {
 }
 
 /* ========================= WHATSAPP ========================= */
+
 .whatsapp-btn {
   position: fixed;
-  right: 30px;
-  bottom: 30px;
+  right: 24px;
+  bottom: 24px;
   z-index: 999;
+
+  animation: whatsappFloat 3s ease-in-out infinite;
 }
 
 .whatsapp-btn img {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  box-shadow: 0 0 25px rgba(37, 211, 102, 0.5);
-  transition: 0.3s;
+  width: 62px;
+  height: 62px;
+
+  object-fit: cover;
+
+  border-radius: 20px;
+
+  padding: 11px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(37, 211, 102, 0.95),
+    rgba(18, 140, 126, 0.95)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 0 15px rgba(37, 211, 102, 0.35),
+    0 0 35px rgba(37, 211, 102, 0.25),
+    0 0 60px rgba(37, 211, 102, 0.15);
+
+  transition: all 0.4s ease;
 }
 
+/* ================= HOVER EFFECT ================= */
+
 .whatsapp-btn img:hover {
-  transform: scale(1.1);
+  transform: translateY(-8px) scale(1.1) rotate(-4deg);
+
+  box-shadow:
+    0 0 25px rgba(37, 211, 102, 0.65),
+    0 0 55px rgba(37, 211, 102, 0.45),
+    0 0 90px rgba(37, 211, 102, 0.25);
+}
+
+/* ================= PULSE EFFECT ================= */
+
+.whatsapp-btn::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 20px;
+
+  background: rgba(37, 211, 102, 0.35);
+
+  z-index: -1;
+
+  animation: pulseWhatsapp 2s infinite;
+}
+
+/* ================= FLOAT ANIMATION ================= */
+
+@keyframes whatsappFloat {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* ================= PULSE ANIMATION ================= */
+
+@keyframes pulseWhatsapp {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  70% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
 }
 
 /* ========================= PARTICLES ========================= */
@@ -328,7 +618,7 @@ body::before {
   opacity: 0;
   animation: rise linear infinite;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 1;
 }
 
 @keyframes rise {
@@ -347,23 +637,88 @@ body::before {
 .hamburger {
   display: none;
   flex-direction: column;
-  gap: 5px;
-  background: none;
+  gap: 7px;
+  background: transparent;
   border: none;
   cursor: pointer;
+  z-index: 2000;
 }
 
 .hamburger span {
-  width: 25px;
-  height: 2px;
-  background: #f5a623;
-  border-radius: 2px;
+  width: 34px;
+  height: 4px;
+  border-radius: 20px;
+
+  background: #38bdf8;
+
+  box-shadow:
+    0 0 8px rgba(56, 189, 248, 0.8),
+    0 0 18px rgba(56, 189, 248, 0.5);
+
+  transition: 0.3s ease;
+}
+/* ========================= CLOSE ICON ========================= */
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* Hover */
+.hamburger:hover span {
+  transform: scaleX(1.08);
+
+  box-shadow:
+    0 0 12px rgba(56, 189, 248, 1),
+    0 0 25px rgba(56, 189, 248, 0.7);
 }
 
 /* ========================= RESPONSIVE ========================= */
 @media (max-width: 768px) {
   .header {
     padding: 15px 20px;
+  }
+
+  .nav-logo {
+    padding: 8px 14px;
+    gap: 10px;
+  }
+
+  .logo-img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    border: 2px solid rgba(56, 189, 248, 0.6);
+
+    box-shadow:
+      0 0 10px rgba(56, 189, 248, 0.5),
+      0 0 25px rgba(56, 189, 248, 0.35),
+      0 0 45px rgba(56, 189, 248, 0.15);
+
+    transition: all 0.4s ease;
+
+    animation: logoFloat 4s ease-in-out infinite;
+  }
+  .logo-img:hover {
+    transform: scale(1.12) rotate(6deg);
+
+    box-shadow:
+      0 0 15px rgba(56, 189, 248, 0.8),
+      0 0 35px rgba(56, 189, 248, 0.5),
+      0 0 60px rgba(56, 189, 248, 0.25);
+  }
+
+  .logo-text {
+    font-size: 13px;
   }
 
   .navbar {
@@ -374,10 +729,42 @@ body::before {
     display: flex;
   }
 
+  /* ================= MOBILE MENU ================= */
+  .navbar.open {
+    display: flex;
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    width: 260px;
+    padding: 35px 25px;
+
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+
+    border-radius: 30px;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+
+    z-index: 1500;
+
+    box-shadow:
+      0 0 30px rgba(0, 0, 0, 0.45),
+      0 0 40px rgba(59, 130, 246, 0.15);
+  }
+
+  .navbar.open a {
+    font-size: 1.15rem;
+    color: #ffffff;
+  }
+
+  /* HERO */
   .hero {
     flex-direction: column;
     text-align: center;
-    padding: 120px 20px 60px;
+    padding: 140px 20px 60px;
+    gap: 30px;
   }
 
   .hero-left,
@@ -385,14 +772,38 @@ body::before {
     width: 100%;
   }
 
+  /* الصورة أولاً */
+  .hero-right {
+    order: 1;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* النص ثانياً */
+  .hero-left {
+    order: 2;
+  }
+
+  /* الصورة */
+  .hero-img-circle {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* العنوان */
   .hero-left h1 {
     font-size: 42px;
+    line-height: 1.2;
   }
 
+  /* النص */
   .hero-left p {
     font-size: 14px;
+    line-height: 1.8;
   }
 
+  /* الأزرار */
   .hero-btns {
     justify-content: center;
     flex-direction: column;
@@ -405,17 +816,7 @@ body::before {
     max-width: 300px;
   }
 
-  .hero-right {
-    margin-top: 50px;
-    position: relative;
-  }
-
-  .hero-img-circle {
-    width: 300px;
-    height: 300px;
-  }
-
-  /* البادجات في الهاتف */
+  /* البادجات */
   .badge-1 {
     top: 20px;
     right: 15px;
@@ -428,22 +829,5 @@ body::before {
     left: 15px;
     font-size: 10px;
     padding: 8px 14px;
-  }
-
-  .navbar.open {
-    display: flex;
-    position: fixed;
-    inset: 0;
-    background: #0b1220;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    z-index: 1000;
-  }
-
-  .navbar.open a {
-    font-size: 1.3rem;
-    color: #ffffff;
   }
 }

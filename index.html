@@ -13,7 +13,7 @@
     />
     <link
       rel="shortcut icon"
-      href="./assets/logo-web.png"
+      href="./assets/my-photo (1).png"
       type="image/x-icon"
     />
     <link rel="stylesheet" href="style.css" />
@@ -27,22 +27,18 @@
     <header>
       <div class="header">
         <div class="nav-logo">
-          <img src="./assets/logo-web.png" alt="logo" class="logo-img" />
+          <img src="./assets/my-photo (1).png" alt="logo" class="logo-img" />
           <span class="logo-text">
             Hichem <span class="last-name">Lachehbi</span>
           </span>
         </div>
         <button class="hamburger" id="hamburger" aria-label="القائمة">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span> <span></span> <span></span>
         </button>
         <nav class="navbar" id="navbar">
           <a href="./index.html" class="active">Home</a>
-          <a href="#">My Skills</a>
-          <a href="#">My Works</a>
-          <a href="#">My Courses</a>
-          <a href="./contact.html">Contact Me</a>
+          <a href="#">My Skills</a> <a href="#">My Works</a>
+          <a href="#">My Courses</a> <a href="./contact.html">Contact Me</a>
         </nav>
       </div>
     </header>
@@ -65,10 +61,8 @@
         </div>
         <div class="hero-right">
           <div class="hero-img-circle">
-            <img src="./assets/logo-web.png" alt="photo" />
+            <img src="./assets/my-photo (1).png" alt="photo" />
           </div>
-          <div class="badge badge-1">▲ FULL STACK DEVELOPER</div>
-          <div class="badge badge-2">▲ SOFTWARE ENGINEER</div>
         </div>
       </section>
     </main>
@@ -86,12 +80,10 @@
     <script>
       const hamburger = document.getElementById("hamburger");
       const navbar = document.getElementById("navbar");
-
       hamburger.addEventListener("click", () => {
         hamburger.classList.toggle("active");
         navbar.classList.toggle("open");
       });
-
       navbar.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", () => {
           hamburger.classList.remove("active");
