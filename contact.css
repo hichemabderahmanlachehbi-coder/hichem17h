@@ -56,7 +56,7 @@ body::after {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 16px 70px;
+  padding: clamp(12px, 2vw, 16px) clamp(20px, 7vw, 70px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,10 +68,10 @@ body::after {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: clamp(8px, 1.2vw, 12px);
   background: #151d31;
-  padding: 10px 18px;
-  border-radius: 14px;
+  padding: clamp(8px, 1vw, 10px) clamp(12px, 1.8vw, 18px);
+  border-radius: clamp(10px, 1.4vw, 14px);
   transition: 0.3s;
 }
 
@@ -80,8 +80,8 @@ body::after {
 }
 
 .logo-img {
-  width: 42px;
-  height: 42px;
+  width: clamp(38px, 4vw, 42px);
+  height: clamp(38px, 4vw, 42px);
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid rgba(56, 189, 248, 0.7);
@@ -103,7 +103,6 @@ body::after {
     0 0 80px rgba(56, 189, 248, 0.35);
 }
 
-/* ✅ تم إضافة logoFloat المفقودة */
 @keyframes logoFloat {
   0%,
   100% {
@@ -134,7 +133,7 @@ body::after {
 }
 
 .logo-text {
-  font-size: 15px;
+  font-size: clamp(13px, 1.1vw, 15px);
   font-weight: 600;
 }
 
@@ -145,13 +144,13 @@ body::after {
 /* ========================= NAVBAR ========================= */
 .navbar {
   display: flex;
-  gap: 38px;
+  gap: clamp(20px, 3vw, 38px);
 }
 
 .navbar a {
   color: #9aa4c7;
   text-decoration: none;
-  font-size: 15px;
+  font-size: clamp(13px, 1.1vw, 15px);
   font-weight: 500;
   position: relative;
   transition: 0.3s;
@@ -187,12 +186,12 @@ body::after {
   flex-direction: column;
   justify-content: center;
   gap: 6px;
-  width: 50px;
-  height: 50px;
+  width: clamp(44px, 4.5vw, 50px);
+  height: clamp(44px, 4.5vw, 50px);
   border: none;
   cursor: pointer;
   background: rgba(15, 23, 42, 0.9);
-  border-radius: 16px;
+  border-radius: clamp(12px, 1.5vw, 16px);
   backdrop-filter: blur(12px);
   box-shadow:
     0 0 15px rgba(56, 189, 248, 0.2),
@@ -203,7 +202,7 @@ body::after {
 
 .hamburger span {
   display: block;
-  width: 28px;
+  width: clamp(24px, 2.5vw, 28px);
   height: 3px;
   margin: 0 auto;
   border-radius: 20px;
@@ -227,7 +226,6 @@ body::after {
     0 0 24px rgba(56, 189, 248, 0.7);
 }
 
-/* ✅ تم إبقاء النسخة الصحيحة فقط وحذف التكرار */
 .hamburger.active span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
@@ -244,18 +242,18 @@ body::after {
 /* ========================= BUTTONS ========================= */
 .hero-btns {
   display: flex;
-  gap: 18px;
-  margin-top: 30px;
+  gap: clamp(12px, 1.5vw, 18px);
+  margin-top: clamp(20px, 2.5vw, 30px);
 }
 
 .btn-primary,
 .btn-secondary {
   position: relative;
   overflow: hidden;
-  padding: 15px 34px;
+  padding: clamp(13px, 1.3vw, 15px) clamp(24px, 2.5vw, 34px);
   border: none;
-  border-radius: 16px;
-  font-size: 15px;
+  border-radius: clamp(12px, 1.4vw, 16px);
+  font-size: clamp(13px, 1.1vw, 15px);
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
@@ -268,11 +266,11 @@ body::after {
 
 /* ========================= MAIN ========================= */
 main {
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 70px);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px 20px 40px;
+  padding: clamp(100px, 13vw, 100px) clamp(20px, 7vw, 70px) clamp(40px, 5vw, 40px);
   position: relative;
   overflow: hidden;
 }
@@ -287,24 +285,24 @@ main {
 }
 
 .bg-blob-1 {
-  width: 300px;
-  height: 300px;
+  width: clamp(180px, 22vw, 300px);
+  height: clamp(180px, 22vw, 300px);
   background: #2563eb;
   top: 10%;
   left: 10%;
 }
 
 .bg-blob-2 {
-  width: 250px;
-  height: 250px;
+  width: clamp(150px, 18vw, 250px);
+  height: clamp(150px, 18vw, 250px);
   background: #0ea5e9;
   bottom: 10%;
   right: 10%;
 }
 
 .bg-blob-3 {
-  width: 200px;
-  height: 200px;
+  width: clamp(120px, 15vw, 200px);
+  height: clamp(120px, 15vw, 200px);
   background: #3b82f6;
   top: 50%;
   left: 60%;
@@ -319,8 +317,8 @@ main {
   background: rgba(15, 23, 42, 0.85);
   border: 1px solid rgba(59, 130, 246, 0.2);
   backdrop-filter: blur(25px);
-  border-radius: 30px;
-  padding: 50px 40px;
+  border-radius: clamp(20px, 3vw, 30px);
+  padding: clamp(28px, 4vw, 50px) clamp(20px, 3.5vw, 40px);
   box-shadow:
     0 25px 50px rgba(0, 0, 0, 0.4),
     0 0 50px rgba(59, 130, 246, 0.08);
@@ -330,34 +328,34 @@ main {
 
 /* ========================= HERO ICON ========================= */
 .hero-icon {
-  width: 90px;
-  margin-bottom: 25px;
+  width: clamp(60px, 7vw, 90px);
+  margin-bottom: clamp(18px, 2vw, 25px);
 }
 
 /* ========================= TITLES ========================= */
 .section-title {
-  font-size: 2.2rem;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 700;
   margin-bottom: 10px;
 }
 
 .section-subtitle {
   color: #94a3b8;
-  margin-bottom: 40px;
-  font-size: 1rem;
+  margin-bottom: clamp(28px, 3.5vw, 40px);
+  font-size: clamp(0.85rem, 1vw, 1rem);
 }
 
 /* ========================= CONTACT ITEM ========================= */
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: clamp(12px, 1.6vw, 18px);
   text-decoration: none;
   background: rgba(30, 41, 59, 0.7);
   border: 1px solid rgba(59, 130, 246, 0.12);
-  border-radius: 18px;
-  padding: 18px 20px;
-  margin-bottom: 18px;
+  border-radius: clamp(14px, 1.8vw, 18px);
+  padding: clamp(14px, 1.8vw, 18px) clamp(16px, 2vw, 20px);
+  margin-bottom: clamp(14px, 1.8vw, 18px);
   transition: 0.3s ease;
   text-align: left;
 }
@@ -369,9 +367,9 @@ main {
 }
 
 .contact-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
+  width: clamp(44px, 5vw, 52px);
+  height: clamp(44px, 5vw, 52px);
+  border-radius: clamp(12px, 1.4vw, 14px);
   background: linear-gradient(135deg, #2563eb, #3b82f6);
   display: flex;
   align-items: center;
@@ -385,7 +383,7 @@ main {
 
 .contact-label {
   color: #f2f2f3;
-  font-size: 0.9rem;
+  font-size: clamp(0.82rem, 0.9vw, 0.9rem);
   margin-bottom: 4px;
 }
 
@@ -393,13 +391,14 @@ main {
   color: #ffffff;
   font-weight: 600;
   word-break: break-word;
+  font-size: clamp(0.95rem, 1vw, 1rem);
 }
 
 /* ========================= DIVIDER ========================= */
 .divider {
   height: 1px;
   background: rgba(148, 163, 184, 0.2);
-  margin: 35px 0 25px;
+  margin: clamp(28px, 3.5vw, 35px) 0 clamp(20px, 2.5vw, 25px);
 }
 
 /* ========================= SOCIALS ========================= */
@@ -407,13 +406,13 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 14px;
+  gap: clamp(10px, 1.4vw, 14px);
 }
 
 .social-btn {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
+  width: clamp(42px, 4.5vw, 48px);
+  height: clamp(42px, 4.5vw, 48px);
+  border-radius: clamp(12px, 1.4vw, 14px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -452,78 +451,12 @@ main {
   }
 }
 
-/* ========================= HERO ========================= */
-.hero {
-  flex-direction: column;
-  text-align: center;
-  padding: 140px 20px 60px;
-  gap: 30px;
-  display: flex;
-}
-
-.hero-left,
-.hero-right {
-  width: 100%;
-}
-
-.hero-right {
-  order: 1;
-  margin-top: 0;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-left {
-  order: 2;
-}
-
-.hero-img-circle {
-  width: 300px;
-  height: 300px;
-}
-
-.hero-left h1 {
-  font-size: 42px;
-  line-height: 1.2;
-}
-
-.hero-left p {
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-.hero-btns {
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.btn-primary,
-.btn-secondary {
-  width: 100%;
-  max-width: 300px;
-}
-
-.badge-1 {
-  top: 20px;
-  right: 15px;
-  font-size: 10px;
-  padding: 8px 14px;
-}
-
-.badge-2 {
-  bottom: 70px;
-  left: 15px;
-  font-size: 10px;
-  padding: 8px 14px;
-}
-
 /* ========================= FOOTER ========================= */
 .footer {
   text-align: center;
-  padding: 20px;
+  padding: clamp(16px, 2vw, 20px);
   color: #3a4266;
-  font-size: 12px;
+  font-size: clamp(11px, 1vw, 12px);
   border-top: none;
   background: transparent;
 }
@@ -531,22 +464,9 @@ main {
 .footer span {
   color: #ffffff;
 }
-/* ========================= RESPONSIVE ========================= */
-@media (max-width: 992px) {
-  .header {
-    padding: 18px 30px;
-  }
 
-  .navbar {
-    gap: 20px;
-  }
-}
-
+/* ========================= RESPONSIVE (layout-only, sizes already fluid) ========================= */
 @media (max-width: 768px) {
-  .header {
-    padding: 15px 20px;
-  }
-
   .hamburger {
     display: flex;
   }
@@ -562,60 +482,29 @@ main {
     right: 20px;
     width: 260px;
     padding: 35px 25px;
-    background: rgba(15, 23, 42, 0.96);
-    backdrop-filter: blur(14px);
-    border-radius: 28px;
+
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+
+    border-radius: 30px;
+
     flex-direction: column;
     align-items: center;
     gap: 28px;
+
     z-index: 1500;
+
     box-shadow:
       0 0 30px rgba(0, 0, 0, 0.45),
       0 0 40px rgba(59, 130, 246, 0.15);
   }
 
   .navbar.open a {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: #ffffff;
   }
 
   .navbar.open a:hover {
     color: #38bdf8;
-  }
-
-  .card {
-    padding: 40px 25px;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-
-  .contact-item {
-    padding: 16px;
-  }
-
-  .contact-icon {
-    width: 46px;
-    height: 46px;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo-text {
-    font-size: 1rem;
-  }
-
-  .section-title {
-    font-size: 1.6rem;
-  }
-
-  .section-subtitle {
-    font-size: 0.9rem;
-  }
-
-  .social-btn {
-    width: 44px;
-    height: 44px;
   }
 }
